@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Detail</title>
+</head>
+<body>
+    <h1>Order Detail</h1>
+    <p>Date: {{ order.date }}</p>
+    <p>Total Price: {{ order.total_price }}</p>
+    <p>Payment Method: {{ order.payment_method }}</p>
+    <p>Pharmacist ID: {{ order.pharmacist.id }}</p>
+    <p>Client ID: {{ order.client.id }}</p>
+    <a href="{% url 'order_list' %}">Back to Order List</a>
+</body>
+</html>
+

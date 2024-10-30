@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if medicine %}Edit Medicine{% else %}Add Medicine{% endif %}</title>
+</head>
+<body>
+    <h1>{% if medicine %}Edit Medicine{% else %}Add Medicine{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Medicine Name:</label>
+        <input type="text" name="medicine_name" value="{{ medicine.Medicine_Name|default:'' }}"><br>
+        <label>Storage:</label>
+        <input type="text" name="storage" value="{{ medicine.Storage|default:'' }}"><br>
+        <label>Supplier Name:</label>
+        <input type="text" name="supplier_name" value="{{ medicine.SupplierName|default:'' }}"><br>
+        <label>Delivery Date:</label>
+        <input type="date" name="delivery_date" value="{{ medicine.DeliveryDate|default:'' }}"><br>
+        <label>Quantity:</label>
+        <input type="number" name="quantity" value="{{ medicine.Quantity|default:'' }}"><br>
+        <label>Price:</label>
+        <input type="text" name="price" value="{{ medicine.Price|default:'' }}"><br>
+        <label>Dosage Form:</label>
+        <input type="text" name="dosage_form" value="{{ medicine.DosageForm|default:'' }}"><br>
+        <input type="submit" value="Save">
+    </form>
+    <a href="{% url 'medicine_list' %}">Cancel</a>
+</body>
+</html>

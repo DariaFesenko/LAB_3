@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add/Edit Client</title>
+</head>
+<body>
+    <h1>{% if client %}Edit Client{% else %}Add Client{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ client.name|default:'' }}"><br>
+        <label>Surname:</label>
+        <input type="text" name="surname" value="{{ client.surname|default:'' }}"><br>
+        <label>Phone:</label>
+        <input type="text" name="phone" value="{{ client.phone|default:'' }}"><br>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ client.email|default:'' }}"><br>
+        <label>Date of Birth:</label>
+        <input type="date" name="date_of_birth" value="{{ client.date_of_birth|default:'' }}"><br>
+        <label>Gender:</label>
+        <input type="text" name="gender" value="{{ client.gender|default:'' }}"><br>
+        <input type="submit" value="Save">
+    </form>
+    <a href="{% url 'client_list' %}">Cancel</a>
+</body>
+</html>

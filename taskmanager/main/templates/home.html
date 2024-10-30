@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Pharmacy ⊂(^(工)^)⊃ </h1>
+        <h2>
+            <a href="{% url 'supplier_list' %}">Suppliers</a>
+            <a href="{% url 'medicine_list' %}">Medicines</a>
+            <a href="{% url 'client_list' %}">Clients</a>
+            <a href="{% url 'pharmacist_list' %}">Pharmacist</a>
+            <a href="{% url 'prescription_list' %}">Prescription</a>
+            <a href="{% url 'order_list' %}">Order</a>
+        </h2>
+    </div>
+</body>
+</html>

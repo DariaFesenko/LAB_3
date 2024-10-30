@@ -1,0 +1,9 @@
+<h1>Medicine Details</h1>
+<p>Name: {{ medicine.medicine_name }}</p>
+<p>Storage: {{ medicine.storage }}</p>
+<p>Supplier: {{ medicine.supplier.company_name }}</p>
+<p>Delivery Date: {{ medicine.delivery_date }}</p>
+<p>Quantity: {{ medicine.quantity }}</p>
+<p>Price: {{ medicine.price }}</p>
+<p>Dosage Form: {{ medicine.dosage_form }}</p>
+<a href="{% url 'medicine_list' %}">Back to list</a>
