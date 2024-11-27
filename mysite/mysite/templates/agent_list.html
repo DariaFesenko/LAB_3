@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        button:hover {
+            background-color: #e60000;
+        }
+
+        .no-agents {
+            color: #999;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список агентів</h1>
+
+    {% if agents %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ім'я</th>
+                    <th>Телефон</th>
+                    <th>Email</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for agent in agents %}
+                <tr>
+                    <td>{{ agent.agentid }}</td>
+                    <td>{{ agent.name }}</td>
+                    <td>{{ agent.phone }}</td>
+                    <td>{{ agent.email }}</td>
+                    <td>
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <input type="hidden" name="agent_id" value="{{ agent.agentid }}">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="no-agents">Немає агентів для відображення.</p>
+    {% endif %}
+</body>
+</html>

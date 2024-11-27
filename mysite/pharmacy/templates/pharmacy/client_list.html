@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client List</title>
+</head>
+<body>
+    <h1>Client List</h1>
+    <ul>
+        {% for client in clients %}
+            <li>
+                <a href="{% url 'pharmacy:client_detail' client.id %}">
+                    {{ client.first_name }} {{ client.last_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'pharmacy:client_create' %}">Add New Client</a>
+</body>
+</html>
